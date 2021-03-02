@@ -56,8 +56,8 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 		}
 	}
 
-	protected void actionPerformedBtn3(ActionEvent e) {
-		JButton btn = (JButton) e.getSource();
+	protected void actionPerformedBtn3(ActionEvent e) {   //컨트롤+1 은 변수를 필드로 바로 빼기 
+		JButton btn = (JButton) e.getSource(); 
 		FrameComponentEx parent = (FrameComponentEx) btn.getTopLevelAncestor();
 		parent.setTitle(btn.getX() + "," + btn.getY());
 
