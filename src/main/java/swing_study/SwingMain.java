@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import swing_study.Component.FrameComponentEx;
+import swing_study.Component.JLavelEx;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
 import swing_study.layout.FrameLayout;
@@ -19,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class SwingMain extends JFrame implements ActionListener {
 
@@ -31,6 +34,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btnGridLayout;
 	private JButton btnAbsoluteLayout;
 	private JButton btn03;
+	private JPanel pComponent;
+	private JButton btn06;
+	private JButton btn04;
+	private JButton btn05;
 
 	/**
 	 * Launch the application.
@@ -97,9 +104,27 @@ public class SwingMain extends JFrame implements ActionListener {
 		btn03 = new JButton("JComponent 공통 속성");
 		btn03.addActionListener(this);
 		contentPane.add(btn03);
+		
+		pComponent = new JPanel();
+		pComponent.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "JLabel & JButton & JToggleBotton", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		contentPane.add(pComponent);
+		pComponent.setLayout(new GridLayout(0, 1, 0, 10));
+		
+		btn04 = new JButton("JLabel");
+		btn04.addActionListener(this);
+		pComponent.add(btn04);
+		
+		btn05 = new JButton("JButton");
+		pComponent.add(btn05);
+		
+		btn06 = new JButton("JToggleButton");
+		pComponent.add(btn06);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn04) {
+			actionPerformedBtn04(e);
+		}
 		if (e.getSource() == btn03) {
 			actionPerformedBtn03(e);
 		}
@@ -158,6 +183,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn03(ActionEvent e) {
 		FrameComponentEx frame = new FrameComponentEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn04(ActionEvent e) {
+		JLavelEx frame = new JLavelEx();
 		frame.setVisible(true);
 	}
 }
