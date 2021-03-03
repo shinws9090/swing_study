@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import swing_study.Component.FrameComponentEx;
+import swing_study.Component.JButtonEx;
 import swing_study.Component.JLavelEx;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
@@ -35,7 +36,6 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btnAbsoluteLayout;
 	private JButton btn03;
 	private JPanel pComponent;
-	private JButton btn06;
 	private JButton btn04;
 	private JButton btn05;
 
@@ -114,14 +114,15 @@ public class SwingMain extends JFrame implements ActionListener {
 		btn04.addActionListener(this);
 		pComponent.add(btn04);
 		
-		btn05 = new JButton("JButton");
+		btn05 = new JButton("JButton && JToggleButton");
+		btn05.addActionListener(this);
 		pComponent.add(btn05);
-		
-		btn06 = new JButton("JToggleButton");
-		pComponent.add(btn06);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn05) {
+			actionPerformedBtn05(e);
+		}
 		if (e.getSource() == btn04) {
 			actionPerformedBtn04(e);
 		}
@@ -187,6 +188,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn04(ActionEvent e) {
 		JLavelEx frame = new JLavelEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn05(ActionEvent e) {
+		JButtonEx frame = new JButtonEx();
 		frame.setVisible(true);
 	}
 }
