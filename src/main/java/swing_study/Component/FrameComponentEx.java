@@ -31,11 +31,7 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 
-		btn1 = new JButton("Magenta/Yellow Button");
-		btn1.setForeground(Color.MAGENTA);
-		btn1.setBackground(Color.YELLOW);
-		btn1.setFont(new Font("Algerian", Font.PLAIN, 20));
-		contentPane.add(btn1);
+		createBtn();
 
 		btn2 = new JButton("Disabled Button");
 		btn2.addActionListener(this);
@@ -47,7 +43,19 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 		contentPane.add(btn3);
 	}
 
+	public void createBtn() {
+		btn1 = new JButton("Magenta/Yellow Button");
+		btn1.setForeground(Color.MAGENTA);
+		btn1.setBackground(Color.YELLOW);
+		btn1.setFont(new Font("Algerian", Font.PLAIN, 20));
+		contentPane.add(btn1, 0);
+
+	}
+
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn1) {
+			actionPerformedBtn1(e);
+		}
 		if (e.getSource() == btn2) {
 			actionPerformedBtn2(e);
 		}
@@ -56,8 +64,8 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 		}
 	}
 
-	protected void actionPerformedBtn3(ActionEvent e) {   //컨트롤+1 은 변수를 필드로 바로 빼기 
-		JButton btn = (JButton) e.getSource(); 
+	protected void actionPerformedBtn3(ActionEvent e) { // 컨트롤+1 은 변수를 필드로 바로 빼기
+		JButton btn = (JButton) e.getSource();
 		FrameComponentEx parent = (FrameComponentEx) btn.getTopLevelAncestor();
 		parent.setTitle(btn.getX() + "," + btn.getY());
 
@@ -70,16 +78,24 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 	}
 
 	protected void actionPerformedBtn2(ActionEvent e) {
-		if (btn1 != null) {  //삭제
+		if (btn1 != null) { // 삭제
 			contentPane.remove(btn1);
 			revalidate();
+			btn1 = null;
 		} else {
+			createBtn();
+			revalidate();
 
-			if (btn1.isVisible()) {
-				btn1.setVisible(false);
-			} else {
-				btn1.setVisible(true);
-			}
+		}
+
+	}
+
+	protected void actionPerformedBtn1(ActionEvent e) {
+
+		if (btn3.isVisible()) {
+			btn3.setVisible(false);
+		} else {
+			btn3.setVisible(true);
 		}
 	}
 }
