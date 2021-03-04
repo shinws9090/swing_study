@@ -18,6 +18,7 @@ public class CheckBoxCustome extends JFrame implements ItemListener{
 	private ArrayList<Fruit> list;
 	private int sum;
 	private JLabel lblRes;
+	private String resStr;
 	
 
 	public CheckBoxCustome(ArrayList<Fruit> list) {
@@ -37,7 +38,7 @@ public class CheckBoxCustome extends JFrame implements ItemListener{
 		JPanel pNorth = new JPanel();
 		contentPane.add(pNorth, BorderLayout.NORTH);
 		
-		JLabel lblTitle = new JLabel("New label");
+		JLabel lblTitle = new JLabel("");
 		pNorth.add(lblTitle);
 		
 		
@@ -49,13 +50,15 @@ public class CheckBoxCustome extends JFrame implements ItemListener{
 		
 		JPanel pCenter = new JPanel();
 		contentPane.add(pCenter, BorderLayout.CENTER);
-
+		
+		String titleStr = "";
 		for(Fruit f : list) {
 			JCheckBox ck = new JCheckBox(f.getName());
+			titleStr += String.format("%s %d원  ", f.getName(),f.getPrice());
 			pCenter.add(ck);
 			ck.addItemListener(this);
 		}
-		
+		lblTitle.setText(titleStr);
 		
 	}
 	
@@ -71,8 +74,8 @@ public class CheckBoxCustome extends JFrame implements ItemListener{
 			sum -= selectFruit.getPrice();
 			
 		}
-		
-		lblRes.setText(sum+"");
+		resStr = String.format("%d원 입니다.", sum);
+		lblRes.setText(resStr);
 		
 	}
 	

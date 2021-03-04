@@ -226,6 +226,9 @@ public class SwingMain extends JFrame implements ActionListener {
 		list.add(new Fruit("사과",100));
 		list.add(new Fruit("배",500));
 		list.add(new Fruit("체리",2000));
+		list.add(new Fruit("바나나",8000));
+		list.add(new Fruit("체리이리",9000));
+		list.add(new Fruit("포도",10000));
 		CheckBoxCustome frame1 = new CheckBoxCustome(list);
 		frame1.setVisible(true);
 	}
