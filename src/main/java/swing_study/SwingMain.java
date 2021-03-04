@@ -20,6 +20,7 @@ import swing_study.Component.FrameComponentEx;
 import swing_study.Component.Fruit;
 import swing_study.Component.JButtonEx;
 import swing_study.Component.JLavelEx;
+import swing_study.Component.JTextFieldAreaEx;
 import swing_study.Component.RadioButtonEx;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
@@ -43,6 +44,8 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JPanel pCheckRadio;
 	private JButton btn06;
 	private JButton btn07;
+	private JPanel pText;
+	private JButton btn08;
 
 	/**
 	 * Launch the application.
@@ -135,9 +138,21 @@ public class SwingMain extends JFrame implements ActionListener {
 		btn07 = new JButton("JRadioButton");
 		btn07.addActionListener(this);
 		pCheckRadio.add(btn07);
+		
+		pText = new JPanel();
+		pText.setBorder(new TitledBorder(null, "\uD14D\uC2A4\uD2B8\uD544\uB4DC", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(pText);
+		pText.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		btn08 = new JButton("JTextField");
+		btn08.addActionListener(this);
+		pText.add(btn08);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn08) {
+			actionPerformedBtn08(e);
+		}
 		if (e.getSource() == btn07) {
 			actionPerformedBtn07(e);
 		}
@@ -234,6 +249,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn07(ActionEvent e) {
 		RadioButtonEx frame = new RadioButtonEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn08(ActionEvent e) {
+		JTextFieldAreaEx frame = new JTextFieldAreaEx();
 		frame.setVisible(true);
 	}
 }
