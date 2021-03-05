@@ -22,7 +22,11 @@ javadoc {
 dependencies {// 작업중 필요한 라이브러리 자동 지정 빌드 (여려명 작업환경을 공통화시키는것)
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java 에서 자동 다운로드
 	//implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.49'
+    // https://mvnrepository.com/artifact/com.toedter/jcalendar
+	implementation group: 'com.toedter', name: 'jcalendar', version: '1.4'
+	
     testImplementation 'junit:junit:4.13'
+    
 
 }
 
