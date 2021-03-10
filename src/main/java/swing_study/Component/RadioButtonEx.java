@@ -23,6 +23,7 @@ public class RadioButtonEx extends JFrame implements ItemListener {
 			new ImageIcon(imgPath + "사과.jpg"), 
 			new ImageIcon(imgPath + "배.jpg"),
 			new ImageIcon(imgPath + "체리.jpg") };
+
 	private JLabel lblImg;
 
 	public RadioButtonEx() {

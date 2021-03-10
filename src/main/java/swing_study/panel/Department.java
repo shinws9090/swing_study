@@ -53,7 +53,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return String.format("Department [deptNo=%s, deptName=%s, floor=%s]", deptno, deptname, floor);
+		return String.format("%s(%d)",deptname,deptno);
 	}
 
 	@Override

@@ -13,6 +13,18 @@ public class DeptPanel extends JPanel {
 	private JTextField tfDeptName;
 	private JTextField tfFloor;
 
+	public JTextField getTfDeptno() {
+		return tfDeptno;
+	}
+
+	public JTextField getTfDeptName() {
+		return tfDeptName;
+	}
+
+	public JTextField getTfFloor() {
+		return tfFloor;
+	}
+
 	public DeptPanel() {
 
 		initialize();
@@ -68,13 +80,18 @@ public class DeptPanel extends JPanel {
 		
 	}
 	
-	public void clearTf(Department department) {
+	public void clearTf() {
 //		tfDeptno.setText(String.valueOf(department.getDeptNo()));
 		tfDeptno.setText("");
 		tfDeptName.setText("");
 		tfFloor.setText("");
 		
 	}
+
+	
+	
+	
+	
 }
 
 

@@ -19,15 +19,25 @@ import swing_study.Component.CheckBoxEx;
 import swing_study.Component.FrameComponentEx;
 import swing_study.Component.Fruit;
 import swing_study.Component.JButtonEx;
+import swing_study.Component.JComblBoxEx1;
+import swing_study.Component.JComblBoxEx2;
+import swing_study.Component.JComblBoxEx3;
+import swing_study.Component.JLabelEx1;
 import swing_study.Component.JLavelEx;
 import swing_study.Component.JListEx1;
 import swing_study.Component.JListEx2;
+import swing_study.Component.JListEx3;
+import swing_study.Component.JSliderEx;
+import swing_study.Component.JSpinnerEx;
+import swing_study.Component.JTabbePane;
+import swing_study.Component.JTableEx;
 import swing_study.Component.JTextFieldAreaEx;
 import swing_study.Component.RadioButtonEx;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
 import swing_study.layout.FrameLayout;
 import swing_study.layout.LayoutGuBun;
+import java.awt.BorderLayout;
 
 public class SwingMain extends JFrame implements ActionListener {
 
@@ -52,6 +62,19 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btn10;
 	private JButton btn09;
 	private JButton btn11;
+	private JPanel pCombo;
+	private JPanel pSliderSpinner;
+	private JButton btn12;
+	private JButton btn13;
+	private JButton btn14;
+	private JPanel pSlider;
+	private JPanel pSpinner;
+	private JButton btn15;
+	private JButton btn16;
+	private JPanel pTabbe;
+	private JButton btn17;
+	private JButton btn0402;
+	private JButton btn18;
 
 	/**
 	 * Launch the application.
@@ -79,7 +102,7 @@ public class SwingMain extends JFrame implements ActionListener {
 	private void initialize() {
 		setTitle("스윙 스터디");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(10, 10, 700, 450);
+		setBounds(10, 10, 750, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -130,6 +153,10 @@ public class SwingMain extends JFrame implements ActionListener {
 		
 		btn05 = new JButton("JButton && JToggleButton");
 		btn05.addActionListener(this);
+		
+		btn0402 = new JButton("JLabel_Size");
+		btn0402.addActionListener(this);
+		pComponent.add(btn0402);
 		pComponent.add(btn05);
 		
 		pCheckRadio = new JPanel();
@@ -168,10 +195,90 @@ public class SwingMain extends JFrame implements ActionListener {
 		pList.add(btn10);
 		
 		btn11 = new JButton("JList 예3");
+		btn11.addActionListener(this);
 		pList.add(btn11);
+		
+		pCombo = new JPanel();
+		pCombo.setBorder(new TitledBorder(null, "JComboBox", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(pCombo);
+		pCombo.setLayout(new GridLayout(0, 1, 10, 10));
+		
+		btn12 = new JButton("JComboBox 예1");
+		btn12.addActionListener(this);
+		pCombo.add(btn12);
+		
+		btn13 = new JButton("JComboBox 예2");
+		btn13.addActionListener(this);
+		pCombo.add(btn13);
+		
+		btn14 = new JButton("JComboBox 예3");
+		btn14.addActionListener(this);
+		pCombo.add(btn14);
+		
+		pSliderSpinner = new JPanel();
+		contentPane.add(pSliderSpinner);
+		pSliderSpinner.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		pSlider = new JPanel();
+		pSlider.setBorder(new TitledBorder(null, "JSlider", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pSliderSpinner.add(pSlider);
+		pSlider.setLayout(new BorderLayout(0, 0));
+		
+		btn15 = new JButton("JSlider 예");
+		btn15.addActionListener(this);
+		pSlider.add(btn15, BorderLayout.CENTER);
+		
+		pSpinner = new JPanel();
+		pSpinner.setBorder(new TitledBorder(null, "JSpinner", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pSliderSpinner.add(pSpinner);
+		pSpinner.setLayout(new BorderLayout(0, 0));
+		
+		btn16 = new JButton("JSpinner 예");
+		btn16.addActionListener(this);
+		pSpinner.add(btn16, BorderLayout.CENTER);
+		
+		pTabbe = new JPanel();
+		pTabbe.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "JTabbePane & JTable", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		contentPane.add(pTabbe);
+		
+		btn17 = new JButton("JTabbePane");
+		btn17.addActionListener(this);
+		pTabbe.setLayout(new GridLayout(0, 1, 10, 10));
+		pTabbe.add(btn17);
+		
+		btn18 = new JButton("JTable");
+		btn18.addActionListener(this);
+		pTabbe.add(btn18);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn18) {
+			actionPerformedBtn18(e);
+		}
+		if (e.getSource() == btn0402) {
+			actionPerformedBtn0402(e);
+		}
+		if (e.getSource() == btn17) {
+			actionPerformedBtn17(e);
+		}
+		if (e.getSource() == btn16) {
+			actionPerformedBtn16(e);
+		}
+		if (e.getSource() == btn15) {
+			actionPerformedBtn15(e);
+		}
+		if (e.getSource() == btn14) {
+			actionPerformedBtn14(e);
+		}
+		if (e.getSource() == btn13) {
+			actionPerformedBtn13(e);
+		}
+		if (e.getSource() == btn12) {
+			actionPerformedBtn12(e);
+		}
+		if (e.getSource() == btn11) {
+			actionPerformedBtn11(e);
+		}
 		if (e.getSource() == btn10) {
 			actionPerformedBtn10(e);
 		}
@@ -289,6 +396,42 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn10(ActionEvent e) {
 		JListEx2 frame = new JListEx2();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn11(ActionEvent e) {
+		JListEx3 frame = new JListEx3();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn12(ActionEvent e) {
+		JComblBoxEx1 frame = new JComblBoxEx1();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn13(ActionEvent e) {
+		JComblBoxEx2 frame = new JComblBoxEx2();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn14(ActionEvent e) {
+		JComblBoxEx3 frame = new JComblBoxEx3();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn15(ActionEvent e) {
+		JSliderEx frame = new JSliderEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn16(ActionEvent e) {
+		JSpinnerEx frame = new JSpinnerEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn17(ActionEvent e) {
+		JTabbePane frame = new JTabbePane();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn0402(ActionEvent e) {
+		JLabelEx1 frame = new JLabelEx1();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn18(ActionEvent e) {
+		JTableEx frame = new JTableEx();
 		frame.setVisible(true);
 	}
 }

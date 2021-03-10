@@ -79,6 +79,6 @@ public class JPanelEx extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtnClear(ActionEvent e) {
 		Department dept = new Department();
-		pDept.clearTf(dept);;
+		pDept.clearTf();
 	}
 }
